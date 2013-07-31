@@ -21,8 +21,8 @@
     program
         .version(pkg.version)
         .usage('[options]')
-        .option('-H, --hostname [hostname]', 'server hostname', 'localhost')
-        .option('-p, --port [port]', 'server port', 3000)
+        .option('-H, --hostname [hostname]', 'server hostname (default: localhost)', 'localhost')
+        .option('-p, --port [port]', 'server port (default: 3000)', 3000)
         .option('-t, --tls', 'use TLS (SSL)')
         .option('-v, --verbose', 'output request log')
         .parse(process.argv);

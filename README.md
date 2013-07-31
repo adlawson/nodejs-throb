@@ -13,10 +13,10 @@ It can be installed in whichever way you prefer, but I recommend [NPM][npm].
 
 ### Command line ###
 ```bash
-$ throb localhost:3000
+$ throb -p 3000
 ```
 ```bash
-$ bin/throb -h
+$ throb -h
 
   Usage: throb [options]
 
