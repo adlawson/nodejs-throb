@@ -3,7 +3,8 @@
 <img src="http://stream1.gifsoup.com/view2/3611809/heartbeat-o.gif" alt="Throb" align="right" width=280/>
 
 **Version:** *0.1.0*<br/>
-**Master build:** [![Master branch build status][travis-master]][travis]
+**Master build:** [![Master branch build status][travis-master]][travis]<br/>
+**Develop build:** [![Develop branch build status][travis-develop]][travis]
 
 
 This library gives you the tools to run a really lightweight heartbeat or ping server.
@@ -138,11 +139,12 @@ You can find a copy of this license at http://www.opensource.org/licenses/mit or
 
 
 <!-- Links -->
-[travis]:        https://travis-ci.org/adlawson/throb
-[travis-master]: https://travis-ci.org/adlawson/throb.png?branch=master
-[npm]:           https://npmjs.org/package/throb
-[vagrant]:       http://vagrantup.com
-[license]:       /LICENSE
-[pingdom]:       https://www.pingdom.com
-[expressjs]:     http://expressjs.com
-[hapi]:          http://hapijs.com
+[travis]:         https://travis-ci.org/adlawson/throb
+[travis-develop]: https://travis-ci.org/adlawson/throb.png?branch=develop
+[travis-master]:  https://travis-ci.org/adlawson/throb.png?branch=master
+[npm]:            https://npmjs.org/package/throb
+[vagrant]:        http://vagrantup.com
+[license]:        /LICENSE
+[pingdom]:        https://www.pingdom.com
+[expressjs]:      http://expressjs.com
+[hapi]:           http://hapijs.com
