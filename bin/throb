@@ -1,0 +1,58 @@
+#!/usr/bin/env node
+/*
+ * This file is part of Throb
+ *
+ * Copyright (c) 2013 Andrew Lawson <http://adlawson.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @see  http://github.com/adlawson/throb/blob/master/LICENSE
+ * @link http://github.com/adlawson/throb
+ */
+(function() {
+
+    'use strict';
+
+    var pkg = require('../package.json');
+    var program = require('commander');
+    var throb = require('../src/throb');
+
+    program
+        .version(pkg.version)
+        .usage('[options]')
+        .option('-H, --hostname [hostname]', 'server hostname', 'localhost')
+        .option('-p, --port [port]', 'server port', 3000)
+        .option('-t, --tls', 'use TLS (SSL)')
+        .option('-v, --verbose', 'output request log')
+        .parse(process.argv);
+
+    if (program.tls) {
+        var net = require('https');
+    } else {
+        var net = require('http');
+    }
+
+    var server = net.createServer().listen(program.port, program.hostname, function() {
+        console.log('Listening to port ' + program.port + ' on ' + program.hostname);
+    });
+    var options = {
+        notFoundCallback: function(req, res) {
+            log(req, 'Failed');
+            res.writeHead(404);
+            res.end();
+        }
+    };
+
+    throb(server, options, function(req, res, next) {
+        log(req, 'Successful');
+        next();
+    });
+
+    function log(req, type) {
+        if (program.verbose) {
+            console.log(type + ' request observed at ' + req.url);
+        }
+    };
+
+})();
