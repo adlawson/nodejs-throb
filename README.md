@@ -75,7 +75,7 @@ var throb = require('throb');
 var http = require('http');
 
 var options = {
-    notFoundCallback: function(req, res, fn) {
+    notFoundCallback: function(req, res) {
         // Handle 404s yourself
     }
 };
